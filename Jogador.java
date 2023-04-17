@@ -14,6 +14,7 @@ class Jogador {
         System.out.println("Pontuação: " + pontos);
     }
 
+    // Setando o atributo pontos (Obrigatória)
     public void aumentarpontuacao(int pontos) {
         this.pontos = this.pontos + pontos;
     }

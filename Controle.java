@@ -46,6 +46,7 @@ class Controle {
         // Mostra os dados do usuario
         tela.mostrar_infos(player.get_x(), player.get_y());
 
+        // Mostra a pontuação (Obrigatória)
         player.mostrarpontuacao();
 
         //// Mostra o mapa

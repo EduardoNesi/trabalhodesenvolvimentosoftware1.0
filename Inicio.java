@@ -8,11 +8,11 @@ public class Inicio {
     // Método para exibir a tela de início e aguardar a entrada do usuário
     public void exibirTelaInicio() {
         // Exibir a imagem de início
-        System.out.println("******************************");
-        System.out.println("*                            *");
-        System.out.println("*     Bem-vindo ao jogo!     *");
-        System.out.println("*                            *");
-        System.out.println("******************************");
+        System.out.println("***********************************");
+        System.out.println("*                                 *");
+        System.out.println("*     Bem-vindo ao jogo de RPG!   *");
+        System.out.println("*                                 *");
+        System.out.println("***********************************");
         System.out.println();
         System.out.println("Aperte enter para começar o jogo...");
 

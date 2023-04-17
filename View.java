@@ -26,7 +26,7 @@ public class View {
         for (int y = 0; y < mapa.length; y++) {
             for (int x = 0; x < mapa[0].length; x++) {
 
-                /* Casp seja a posição do jogador */
+                /* Caso seja a posição do jogador */
                 if (jogador_y == y && jogador_x == x) {
                     System.out.print("@");
 
