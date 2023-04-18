@@ -87,11 +87,14 @@ class Controle {
         return missoes.existe_missao(x, y);
     }
 
+    public static boolean eh_destino(int x, int y) {
+        return missoes.eh_destino(x, y);
+    }
     // ***************************************************************************************
     // Main
     // ***************************************************************************************
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws Exception {
         //// Inicializa os atributos
         /* Interações com o usuário */
         Inicio inicio = new Inicio();

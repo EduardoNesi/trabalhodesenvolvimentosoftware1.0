@@ -129,6 +129,7 @@ public class GerenciadorMissoes {
                 if (missoes.get(i).get_ativa() == true) {
                     return true;
                 }
+
             }
         }
 

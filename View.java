@@ -46,6 +46,8 @@ public class View {
                 else if (Controle.existe_missao(x, y)) {
                     System.out.print("M");
 
+                } else if (Controle.eh_destino(x, y)) {
+                    System.out.print("D");
                 }
                 /* Caso não tenha nada no local */
                 else {
