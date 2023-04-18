@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 class Controle {
 
     // ***************************************************************************************
@@ -9,20 +7,7 @@ class Controle {
     static Jogador player;
     static GerenciadorMissoes missoes;
 
-    static String mapa[][] = {
-            { "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x" },
-            { "x", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "x" },
-            { "x", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "x" },
-            { "x", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "x" },
-            { "x", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "x" },
-            { "x", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "x" },
-            { "x", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "x" },
-            { "x", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "x" },
-            { "x", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "x" },
-            { "x", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "x" },
-            { "x", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "x" },
-            { "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x" }
-    };
+    static String mapa[][];
 
     // ***************************************************************************************
     // Operações/Métodos
@@ -106,11 +91,31 @@ class Controle {
     // Main
     // ***************************************************************************************
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         //// Inicializa os atributos
         /* Interações com o usuário */
         Inicio inicio = new Inicio();
         inicio.exibirTelaInicio();
+
+        mapa = new String[50][50];
+
+        // Declara uma matriz 2D com 50 linhas e 50 colunas
+        mapa = new String[50][50];
+
+        // Loop externo para iterar através das linhas do mapa
+        for (int y = 0; y < mapa.length; y++) {
+            // Loop interno para iterar através das colunas do mapa
+            for (int x = 0; x < mapa[0].length; x++) {
+                // Verifica se a posição atual está na borda da matriz
+                if (y == 0 || y == mapa.length - 1 || x == 0 || x == mapa[0].length - 1) {
+                    // Se estiver na borda, define o valor para "x"
+                    mapa[y][x] = "x";
+                } else {
+                    // Caso contrário, define o valor para um espaço em branco
+                    mapa[y][x] = " ";
+                }
+            }
+        }
 
         tela = new View();
 
@@ -122,15 +127,19 @@ class Controle {
 
         int total_missoes = missoes.quantidade_missoes();
         int missoes_completas = missoes.quantidade_missoes_completas();
+
         //// Inicia o jogo
         while (missoes_completas < total_missoes) {
+
             operacao();
 
             int nova_quantidade_de_missoes_completas = missoes.quantidade_missoes_completas();
             if (nova_quantidade_de_missoes_completas > missoes_completas) {
                 missoes_completas = nova_quantidade_de_missoes_completas;
                 player.aumentarpontuacao(1);
-
+                tela.limpar_tela();
+                tela.mostrar_mensagem_missão_completa();
+                Thread.sleep(2000);
             }
         }
         tela.limpar_tela();

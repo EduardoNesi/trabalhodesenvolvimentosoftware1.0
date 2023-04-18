@@ -18,13 +18,24 @@ public class View {
         System.out.flush();
     }
 
+    public void mostrar_mensagem_missão_completa() {
+        System.out.println("Missão Completa!");
+    }
+
     // ============================================================
     // Desenha o mapa do jogo, considerando a posição do jogador
     // e quaisquer missões
     // ============================================================
     public void desenhar_mapa(String[][] mapa, int jogador_x, int jogador_y) {
-        for (int y = 0; y < mapa.length; y++) {
-            for (int x = 0; x < mapa[0].length; x++) {
+        int largura_visivel = 12; // Definindo a largura visível como 6 colunas
+        int altura_visivel = 12; // Definindo a altura visível como 6 linhas
+
+        // Definindo as coordenadas do canto superior esquerdo da janela visível
+        int inicio_x = Math.max(0, jogador_x - largura_visivel / 2);
+        int inicio_y = Math.max(0, jogador_y - altura_visivel / 2);
+
+        for (int y = inicio_y; y < inicio_y + altura_visivel && y < mapa.length; y++) {
+            for (int x = inicio_x; x < inicio_x + largura_visivel && x < mapa[0].length; x++) {
 
                 /* Caso seja a posição do jogador */
                 if (jogador_y == y && jogador_x == x) {
