@@ -45,7 +45,7 @@ public class View {
                 /* Caso seja a posição do início de uma missão */
                 else if (Controle.existe_missao(x, y)) {
                     System.out.print("M");
-
+                    // Caso a missão esteja ativa é adicionado o "D" no destino da missão
                 } else if (Controle.eh_destino(x, y)) {
                     System.out.print("D");
                 }
